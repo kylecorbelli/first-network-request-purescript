@@ -79,12 +79,11 @@ view :: State -> HTML Event
 view state =
   div ! className "flex flex-column helvetica items-center justify-center min-vh-100" $ do
     h1 ! className "blue f1 ttu" $ text "First Network Request"
-    form ! className "flex flex-column w-90" #! onSubmit RequestUser $ do
-      input ! type' "number" ! placeholder "user id" ! className "outline-0 bb-1 bl-0 br-0 bt-0 f4 mb2" #! onChange UserIdChange
-      button ! type' "submit" ! className "bg-light-blue bn f4 hover-bg-blue outline-0 pa2 pointer white" $ text "Load Users"
+    form ! className "flex flex-column mw5 w-90" #! onSubmit RequestUser $ do
+      input ! type' "number" ! placeholder "user id" ! className "outline-0 bb-1 bl-0 br-0 bt-0 f4 mb3" #! onChange UserIdChange
+      button ! type' "submit" ! className "bg-light-blue bn f4 hover-bg-blue outline-0 pa2 pointer white" $ text "Load User"
     viewUser state.user
 
-{-- viewUser :: Maybe User -> HTML Event --}
 viewUser :: RemoteData String User -> HTML Event
 viewUser user = p ! className "f2" $ text content
   where
@@ -112,36 +111,5 @@ main = do
     , inputs: []
     }
   renderToDOM "#app" app.markup app.input
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
